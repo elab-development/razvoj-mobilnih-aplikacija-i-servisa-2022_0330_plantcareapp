@@ -1,54 +1,50 @@
-<<<<<<< HEAD
-# Welcome to your Expo app 👋
+# Plant Care App
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+Plant Care App je mobilna aplikacija za negu biljaka razvijena u React Native/Expo okruženju. Aplikacija omogućava korisniku da prati svoje biljke, njihove osnovne informacije, stanje i podatke koji se dobijaju preko senzora.
 
-## Get started
+## Opis aplikacije
 
-1. Install dependencies
+Cilj aplikacije je da korisniku olakša brigu o biljkama kroz pregled biljaka, praćenje parametara kao što su vlažnost zemljišta, temperatura i vlažnost vazduha, kao i kroz obaveštenja ili preporuke vezane za negu biljaka.
 
-   ```bash
-   npm install
-   ```
+Aplikacija je namenjena korisnicima koji žele jednostavniji način za organizovanje i praćenje nege svojih biljaka.
 
-2. Start the app
+## Korišćene tehnologije
 
-   ```bash
-   npx expo start
-   ```
+- React Native
+- Expo
+- TypeScript
+- Supabase
+- Flask API
+- ESP32 mikrokontroler
+- Senzori za praćenje uslova okruženja
 
-In the output, you'll find options to open the app in a
+## Pokretanje projekta
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
-
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
-
-## Get a fresh project
-
-When you're ready, run:
+Prvo je potrebno instalirati zavisnosti:
 
 ```bash
-npm run reset-project
+npm install
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+Zatim se aplikacija pokreće komandom:
 
-## Learn more
+```bash
+npx expo start
+```
 
-To learn more about developing your project with Expo, look at the following resources:
+Nakon pokretanja moguće je otvoriti aplikaciju pomoću:
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+- Expo Go aplikacije
+- Android emulatora
+- iOS simulatora
+- web pregledača
 
-## Join the community
+## Struktura projekta
 
-Join our community of developers creating universal apps.
+Glavni kod aplikacije nalazi se u folderu `app`.
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
-=======
-[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/8kfOsK-t)
->>>>>>> 9c6844246ed70f43302ce2f41afbfc29323256b0
+Projekat koristi file-based routing preko Expo Router-a.
+
+## Napomena
+
+Za pokretanje aplikacije potrebno je podesiti odgovarajuće environment promenljive za povezivanje sa bazom podataka i API servisom.
