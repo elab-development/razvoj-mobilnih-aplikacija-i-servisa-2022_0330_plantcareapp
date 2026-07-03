@@ -1,33 +1,153 @@
 import { Tabs } from 'expo-router';
-import React from 'react';
+import { Ionicons } from '@expo/vector-icons';
+import { Image, View } from 'react-native';
 
-import { HapticTab } from '@/components/haptic-tab';
-import { IconSymbol } from '@/components/ui/icon-symbol';
 import { Colors } from '@/constants/theme';
-import { useColorScheme } from '@/hooks/use-color-scheme';
+import { hp, wp, moderateScale } from '@/utils/responsive';
+
+const colors = Colors.light;
+
+function CenterLogoTab({ focused }: { focused: boolean }) {
+  return (
+    <View
+      style={{
+        width: moderateScale(40),
+        height: moderateScale(40),
+        borderRadius: moderateScale(32),
+         backgroundColor: focused ? colors.accent : 'transparent',
+        justifyContent: 'center',
+        alignItems: 'center',
+      }}
+    >
+      <Image
+        source={require('@/assets/images/logo.png')}
+        style={{
+          width: moderateScale(35),
+          height: moderateScale(35),
+        }}
+        resizeMode="contain"
+      />
+    </View>
+  );
+}
+
+function TabIcon({
+  focused,
+  color,
+  name,
+}: {
+  focused: boolean;
+  color: string;
+  name: keyof typeof Ionicons.glyphMap;
+}) {
+  
+  return (
+    <View
+      style={{
+        width: moderateScale(44),
+        height: moderateScale(40),
+        borderRadius: moderateScale(40),
+        backgroundColor: focused ? colors.accent : 'transparent',
+        justifyContent: 'center',
+        alignItems: 'center',
+      }}
+    >
+      <Ionicons name={name} size={moderateScale(25)} color={color} />
+    </View>
+  );
+}
 
 export default function TabLayout() {
-  const colorScheme = useColorScheme();
-
   return (
     <Tabs
       screenOptions={{
-        tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
         headerShown: false,
-        tabBarButton: HapticTab,
-      }}>
+        tabBarShowLabel: false,
+
+        tabBarStyle: {
+          position: 'absolute',
+          left: wp(10),
+          right: wp(10),
+          height: hp(12),
+          backgroundColor: colors.white,
+          borderRadius: moderateScale(10),
+        },
+
+        tabBarItemStyle: {
+          justifyContent: 'center',
+          alignItems: 'center',
+          paddingTop: hp(1),
+        },
+
+        tabBarActiveTintColor: colors.textDarkest,
+        tabBarInactiveTintColor: colors.textDarkest,
+      }}
+    >
       <Tabs.Screen
         name="index"
         options={{
-          title: 'Home',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="house.fill" color={color} />,
+          title: 'Početna',
+          tabBarIcon: ({ color, focused }) => (
+            <TabIcon
+              focused={focused}
+              color={color}
+              name='home'
+            />
+          ),
         }}
       />
+
       <Tabs.Screen
-        name="explore"
+        name="notifications"
         options={{
-          title: 'Explore',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="paperplane.fill" color={color} />,
+          title: 'Notifikacije',
+          tabBarIcon: ({ color, focused }) => (
+            <TabIcon
+              focused={focused}
+              color={color}
+              name='calendar'
+            />
+          ),
+        }}
+      />
+
+      <Tabs.Screen
+        name="plants"
+        options={{
+          title: 'Biljke',
+          tabBarIcon: ({ color, focused }) => (
+            <CenterLogoTab focused={focused} />
+          ),
+        }}
+      />
+
+      
+
+      <Tabs.Screen
+        name="sensors"
+        options={{
+          title: 'Senzori',
+          tabBarIcon: ({ color, focused }) => (
+            <TabIcon
+              focused={focused}
+              color={color}
+              name='hardware-chip'
+            />
+          ),
+        }}
+      />
+
+      <Tabs.Screen
+        name="profile"
+        options={{
+          title: 'Profil',
+          tabBarIcon: ({ color, focused }) => (
+            <TabIcon
+              focused={focused}
+              color={color}
+              name='person'
+            />
+          ),
         }}
       />
     </Tabs>

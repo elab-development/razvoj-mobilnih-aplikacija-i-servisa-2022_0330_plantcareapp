@@ -8,46 +8,48 @@ import { Platform } from 'react-native';
 const tintColorLight = '#0a7ea4';
 const tintColorDark = '#fff';
 
-export const Colors = {
-  light: {
-    text: '#11181C',
-    background: '#fff',
-    tint: tintColorLight,
-    icon: '#687076',
-    tabIconDefault: '#687076',
-    tabIconSelected: tintColorLight,
-  },
-  dark: {
-    text: '#ECEDEE',
-    background: '#151718',
-    tint: tintColorDark,
-    icon: '#9BA1A6',
-    tabIconDefault: '#9BA1A6',
-    tabIconSelected: tintColorDark,
-  },
+const plantPalette = {
+  darkestGreen: '#142C19',
+  forestGreen: '#2D5128',
+  mediumGreen: '#6B8A47',
+  lightGreen: '#8DA750',
+  yellow: '#FFD96A',
+  lightestYellow: '#E4EB9C',
+  white: '#F4F1E9',
+  pureWhite: '#FFFFFF',
 };
 
-export const Fonts = Platform.select({
-  ios: {
-    /** iOS `UIFontDescriptorSystemDesignDefault` */
-    sans: 'system-ui',
-    /** iOS `UIFontDescriptorSystemDesignSerif` */
-    serif: 'ui-serif',
-    /** iOS `UIFontDescriptorSystemDesignRounded` */
-    rounded: 'ui-rounded',
-    /** iOS `UIFontDescriptorSystemDesignMonospaced` */
-    mono: 'ui-monospace',
+export const Colors = {
+  light: {
+    textDarkest: plantPalette.darkestGreen,
+    textLightest: plantPalette.lightestYellow,
+    textPlantCard: plantPalette.yellow,
+    background: plantPalette.lightGreen,
+    plantCardColor: plantPalette.forestGreen,
+    poppupCardColor: plantPalette.forestGreen,
+
+    darkest: plantPalette.darkestGreen,
+    accent: plantPalette.yellow,
+    mediumgreen: plantPalette.mediumGreen,
+    white: plantPalette.white,
+
+    border: plantPalette.lightestYellow,
+
   },
-  default: {
-    sans: 'normal',
-    serif: 'serif',
-    rounded: 'normal',
-    mono: 'monospace',
+  dark: {
+    text: plantPalette.white,
+    background: plantPalette.darkestGreen,
+    tint: plantPalette.yellow,
+    icon: plantPalette.lightestYellow,
+    tabIconDefault: plantPalette.lightGreen,
+    tabIconSelected: plantPalette.yellow,
+
+    primary: plantPalette.forestGreen,
+    primaryDark: plantPalette.darkestGreen,
+    secondary: plantPalette.lightGreen,
+    accent: plantPalette.yellow,
+    card: plantPalette.forestGreen,
+    border: plantPalette.mediumGreen,
+    mutedText: plantPalette.lightestYellow,
   },
-  web: {
-    sans: "system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif",
-    serif: "Georgia, 'Times New Roman', serif",
-    rounded: "'SF Pro Rounded', 'Hiragino Maru Gothic ProN', Meiryo, 'MS PGothic', sans-serif",
-    mono: "SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace",
-  },
-});
+};
