@@ -1,9 +1,9 @@
-import { Tabs } from 'expo-router';
-import { Ionicons } from '@expo/vector-icons';
-import { Image, View } from 'react-native';
+import { Ionicons } from "@expo/vector-icons";
+import { Tabs } from "expo-router";
+import { Image, View } from "react-native";
 
-import { Colors } from '@/constants/theme';
-import { hp, wp, moderateScale } from '@/utils/responsive';
+import { Colors } from "@/constants/theme";
+import { hp, moderateScale, wp } from "@/utils/responsive";
 
 const colors = Colors.light;
 
@@ -14,13 +14,13 @@ function CenterLogoTab({ focused }: { focused: boolean }) {
         width: moderateScale(40),
         height: moderateScale(40),
         borderRadius: moderateScale(32),
-         backgroundColor: focused ? colors.accent : 'transparent',
-        justifyContent: 'center',
-        alignItems: 'center',
+        backgroundColor: focused ? colors.accent : "transparent",
+        justifyContent: "center",
+        alignItems: "center",
       }}
     >
       <Image
-        source={require('@/assets/images/logo.png')}
+        source={require("@/assets/images/logo.png")}
         style={{
           width: moderateScale(35),
           height: moderateScale(35),
@@ -40,16 +40,15 @@ function TabIcon({
   color: string;
   name: keyof typeof Ionicons.glyphMap;
 }) {
-  
   return (
     <View
       style={{
         width: moderateScale(44),
         height: moderateScale(40),
         borderRadius: moderateScale(40),
-        backgroundColor: focused ? colors.accent : 'transparent',
-        justifyContent: 'center',
-        alignItems: 'center',
+        backgroundColor: focused ? colors.accent : "transparent",
+        justifyContent: "center",
+        alignItems: "center",
       }}
     >
       <Ionicons name={name} size={moderateScale(25)} color={color} />
@@ -65,7 +64,7 @@ export default function TabLayout() {
         tabBarShowLabel: false,
 
         tabBarStyle: {
-          position: 'absolute',
+          position: "absolute",
           left: wp(10),
           right: wp(10),
           height: hp(12),
@@ -74,8 +73,8 @@ export default function TabLayout() {
         },
 
         tabBarItemStyle: {
-          justifyContent: 'center',
-          alignItems: 'center',
+          justifyContent: "center",
+          alignItems: "center",
           paddingTop: hp(1),
         },
 
@@ -86,13 +85,9 @@ export default function TabLayout() {
       <Tabs.Screen
         name="index"
         options={{
-          title: 'Početna',
+          title: "Početna",
           tabBarIcon: ({ color, focused }) => (
-            <TabIcon
-              focused={focused}
-              color={color}
-              name='home'
-            />
+            <TabIcon focused={focused} color={color} name="home" />
           ),
         }}
       />
@@ -100,39 +95,36 @@ export default function TabLayout() {
       <Tabs.Screen
         name="notifications"
         options={{
-          title: 'Notifikacije',
+          title: "Notifikacije",
           tabBarIcon: ({ color, focused }) => (
-            <TabIcon
-              focused={focused}
-              color={color}
-              name='calendar'
-            />
+            <TabIcon focused={focused} color={color} name="calendar" />
           ),
         }}
       />
 
       <Tabs.Screen
-        name="plants"
+        name="add-plant"
         options={{
-          title: 'Biljke',
+          title: "Biljke",
           tabBarIcon: ({ color, focused }) => (
             <CenterLogoTab focused={focused} />
           ),
         }}
       />
 
-      
+      {/* <Tabs.Screen
+        name="add-plant"
+        options={{
+          href: null,
+        }}
+      /> */}
 
       <Tabs.Screen
         name="sensors"
         options={{
-          title: 'Senzori',
+          title: "Senzori",
           tabBarIcon: ({ color, focused }) => (
-            <TabIcon
-              focused={focused}
-              color={color}
-              name='hardware-chip'
-            />
+            <TabIcon focused={focused} color={color} name="hardware-chip" />
           ),
         }}
       />
@@ -140,13 +132,9 @@ export default function TabLayout() {
       <Tabs.Screen
         name="profile"
         options={{
-          title: 'Profil',
+          title: "Profil",
           tabBarIcon: ({ color, focused }) => (
-            <TabIcon
-              focused={focused}
-              color={color}
-              name='person'
-            />
+            <TabIcon focused={focused} color={color} name="person" />
           ),
         }}
       />

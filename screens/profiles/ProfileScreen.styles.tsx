@@ -1,7 +1,7 @@
-import { StyleSheet } from 'react-native';
-import { Colors } from '@/constants/theme';
-import { Fonts } from '@/constants/fonts';
-import { hp, wp, moderateScale, fontScale } from '@/utils/responsive';
+import { Fonts } from "@/constants/fonts";
+import { Colors } from "@/constants/theme";
+import { fontScale, hp, moderateScale, wp } from "@/utils/responsive";
+import { StyleSheet } from "react-native";
 
 const colors = Colors.light;
 
@@ -14,16 +14,16 @@ export const styles = StyleSheet.create({
   loadingContainer: {
     flex: 1,
     backgroundColor: colors.background,
-    justifyContent: 'center',
-    alignItems: 'center',
+    justifyContent: "center",
+    alignItems: "center",
   },
 
   topShape: {
-    position: 'absolute',
+    position: "absolute",
     top: -hp(17),
     left: -wp(12),
     width: wp(125),
-    height: hp(33),
+    height: hp(37),
     backgroundColor: colors.accent,
   },
 
@@ -37,8 +37,8 @@ export const styles = StyleSheet.create({
   logo: {
     width: moderateScale(50),
     height: moderateScale(50),
-    alignSelf: 'center',
-    marginTop: hp(0.5),
+    alignSelf: "center",
+    marginTop: hp(6),
     marginBottom: hp(5),
   },
 
@@ -51,28 +51,28 @@ export const styles = StyleSheet.create({
   },
 
   inputWithIcon: {
-    position: 'relative',
+    position: "relative",
   },
 
   editIcon: {
-    position: 'absolute',
+    position: "absolute",
   },
 
   scrollContent: {
-  flexGrow: 1,
-  paddingBottom: 100,
-},
+    flexGrow: 1,
+    paddingBottom: 100,
+  },
 
   biometricCard: {
-    width: '100%',
+    width: "100%",
     minHeight: 70,
     paddingHorizontal: 16,
     paddingVertical: 10,
     marginTop: 18,
     marginBottom: 10,
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
   },
 
   biometricTitle: {
@@ -82,8 +82,8 @@ export const styles = StyleSheet.create({
     marginBottom: 2,
   },
 
-   saveButton: {
-    alignSelf: 'center',
+  saveButton: {
+    alignSelf: "center",
     width: wp(65),
     height: hp(6.8),
     marginTop: hp(1),
@@ -97,7 +97,7 @@ export const styles = StyleSheet.create({
   },
 
   cancelButton: {
-    alignSelf: 'center',
+    alignSelf: "center",
     width: wp(45),
     height: hp(5.2),
     marginTop: hp(1.8),
@@ -111,7 +111,7 @@ export const styles = StyleSheet.create({
   },
 
   logoutButton: {
-    alignSelf: 'center',
+    alignSelf: "center",
     width: wp(35),
     height: hp(5),
     marginBottom: hp(1.5),
@@ -128,61 +128,61 @@ export const styles = StyleSheet.create({
     marginBottom: 8,
   },
   readonlyBox: {
-  width: '100%',
+    width: "100%",
     height: hp(6.8),
     borderWidth: 2,
     borderColor: colors.textLightest,
     borderRadius: moderateScale(14),
     paddingHorizontal: moderateScale(18),
-    justifyContent: 'center',
+    justifyContent: "center",
     marginBottom: hp(1.5),
 
-  backgroundColor: colors.mediumgreen,
+    backgroundColor: colors.mediumgreen,
 
-  shadowColor: colors.textDarkest,
-  shadowOffset: { width: 0, height: 3 },
-  shadowRadius: moderateScale(3),
-},
+    shadowColor: colors.textDarkest,
+    shadowOffset: { width: 0, height: 3 },
+    shadowRadius: moderateScale(3),
+  },
 
-readonlyText: {
-  fontFamily: Fonts.paragraph,
+  readonlyText: {
+    fontFamily: Fonts.paragraph,
     fontSize: fontScale(17),
     color: colors.textLightest,
-},
-avatarWrapper: {
-  width: moderateScale(95),
+  },
+  avatarWrapper: {
+    width: moderateScale(95),
     height: moderateScale(95),
-    alignSelf: 'center',
+    alignSelf: "center",
     marginBottom: hp(2),
-    position: 'relative',
-},
+    position: "relative",
+  },
 
-avatar: {
-  width: moderateScale(92),
+  avatar: {
+    width: moderateScale(92),
     height: moderateScale(92),
     borderRadius: moderateScale(46),
     borderWidth: 3,
     borderColor: colors.textLightest,
     backgroundColor: colors.background,
-},
+  },
 
-avatarEditBadge: {
-  position: 'absolute',
+  avatarEditBadge: {
+    position: "absolute",
     right: -2,
     bottom: -2,
     width: moderateScale(30),
     height: moderateScale(30),
     borderRadius: moderateScale(15),
     backgroundColor: colors.accent,
-    justifyContent: 'center',
-    alignItems: 'center',
+    justifyContent: "center",
+    alignItems: "center",
     borderWidth: moderateScale(2),
     borderColor: colors.background,
-},
+  },
 
-avatarEditText: {
-  fontFamily: Fonts.heading,
+  avatarEditText: {
+    fontFamily: Fonts.heading,
     fontSize: fontScale(16),
     color: colors.textDarkest,
-},
+  },
 });
