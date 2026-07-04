@@ -1,29 +1,28 @@
-import { useEffect, useState } from "react";
-import * as ImagePicker from "expo-image-picker";
-import * as FileSystem from "expo-file-system/legacy";
 import { decode } from "base64-arraybuffer";
+import * as FileSystem from "expo-file-system/legacy";
+import * as ImagePicker from "expo-image-picker";
+import { router } from "expo-router";
+import { useEffect, useState } from "react";
 import {
   ActivityIndicator,
   Alert,
   Image,
+  Pressable,
   Switch,
   Text,
-  TouchableOpacity,
   View,
-  Pressable,
 } from "react-native";
-import { router } from "expo-router";
 
 import AppButton from "@/components/AppButton";
 import InputField from "@/components/InputField";
-import { supabase } from "@/services/supabase";
+import { Colors } from "@/constants/theme";
 import {
   authenticateWithBiometrics,
   getBiometricEnabled,
   isBiometricAvailable,
   setBiometricEnabled,
 } from "@/services/biometricService";
-import { Colors } from "@/constants/theme";
+import { supabase } from "@/services/supabase";
 import { styles } from "./ProfileScreen.styles";
 
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
@@ -269,13 +268,13 @@ export default function ProfileScreen() {
       showsVerticalScrollIndicator={false}
     >
       <View style={styles.topShape} />
-
       <View style={styles.content}>
         <Image
           source={require("@/assets/images/logo.png")}
           style={styles.logo}
           resizeMode="contain"
         />
+        <Text style={styles.title}>Profil</Text>
 
         <Pressable onPress={handlePickAvatar} style={styles.avatarWrapper}>
           <Image

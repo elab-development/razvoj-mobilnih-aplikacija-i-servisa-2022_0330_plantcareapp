@@ -1,5 +1,7 @@
 import { Fonts } from "@/constants/fonts";
+import { LogoStyle } from "@/constants/logo";
 import { Colors } from "@/constants/theme";
+import { Typography } from "@/constants/typography";
 import { fontScale, hp, moderateScale, wp } from "@/utils/responsive";
 import { StyleSheet } from "react-native";
 
@@ -23,7 +25,7 @@ export const styles = StyleSheet.create({
     top: -hp(17),
     left: -wp(12),
     width: wp(125),
-    height: hp(37),
+    height: hp(36),
     backgroundColor: colors.accent,
   },
 
@@ -35,16 +37,19 @@ export const styles = StyleSheet.create({
   },
 
   logo: {
-    width: moderateScale(50),
-    height: moderateScale(50),
-    alignSelf: "center",
-    marginTop: hp(6),
-    marginBottom: hp(5),
+    ...LogoStyle,
+  },
+
+  title: {
+    ...Typography.screenTitle,
+    color: colors.textLightest,
+    textAlign: "center",
+    marginTop: hp(1),
+    marginBottom: hp(3),
   },
 
   label: {
-    fontFamily: Fonts.paragraph,
-    fontSize: fontScale(18),
+    ...Typography.inputLabel,
     color: colors.textLightest,
     marginLeft: moderateScale(4),
     marginBottom: hp(0.5),

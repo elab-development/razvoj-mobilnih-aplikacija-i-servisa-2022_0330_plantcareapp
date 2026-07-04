@@ -1,9 +1,3 @@
-import { View, Text } from 'react-native';
+import NotificationsScreen from "@/screens/notifications/NotificationSceen";
 
-export default function Plants() {
-  return (
-    <View>
-      <Text>Biljke</Text>
-    </View>
-  );
-}
+export default NotificationsScreen;

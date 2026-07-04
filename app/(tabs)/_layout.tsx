@@ -1,9 +1,8 @@
+import { Colors } from "@/constants/theme";
+import { hp, moderateScale, wp } from "@/utils/responsive";
 import { Ionicons } from "@expo/vector-icons";
 import { Tabs } from "expo-router";
 import { Image, View } from "react-native";
-
-import { Colors } from "@/constants/theme";
-import { hp, moderateScale, wp } from "@/utils/responsive";
 
 const colors = Colors.light;
 
@@ -57,6 +56,9 @@ function TabIcon({
 }
 
 export default function TabLayout() {
+  // useEffect(() => {
+  //   setupDailyWateringReminder();
+  // }, []);
   return (
     <Tabs
       screenOptions={{

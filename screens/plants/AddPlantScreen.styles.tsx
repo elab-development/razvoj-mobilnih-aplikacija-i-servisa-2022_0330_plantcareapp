@@ -1,9 +1,10 @@
 import { StyleSheet } from "react-native";
 
 import { Fonts } from "@/constants/fonts";
+import { LogoStyle } from "@/constants/logo";
 import { Colors } from "@/constants/theme";
+import { Typography } from "@/constants/typography";
 import { fontScale, hp, moderateScale, wp } from "@/utils/responsive";
-
 const colors = Colors.light;
 
 export const styles = StyleSheet.create({
@@ -20,24 +21,24 @@ export const styles = StyleSheet.create({
   },
 
   logo: {
-    width: moderateScale(50),
-    height: moderateScale(50),
-    alignSelf: "center",
-    marginBottom: hp(1.5),
-    marginTop: hp(6),
+    ...LogoStyle,
   },
 
   title: {
-    fontFamily: Fonts.heading,
-    fontSize: fontScale(34),
-    lineHeight: fontScale(42),
+    ...Typography.screenTitle,
     color: colors.textLightest,
     textAlign: "center",
-    marginBottom: hp(4),
+    marginBottom: hp(3),
+    marginTop: hp(1),
+  },
 
-    textShadowColor: "rgba(20, 44, 25, 0.45)",
-    textShadowOffset: { width: 0, height: 4 },
-    textShadowRadius: 2,
+  topShape: {
+    position: "absolute",
+    top: -hp(17),
+    left: -wp(12),
+    width: wp(125),
+    height: hp(36),
+    backgroundColor: colors.accent,
   },
 
   label: {
