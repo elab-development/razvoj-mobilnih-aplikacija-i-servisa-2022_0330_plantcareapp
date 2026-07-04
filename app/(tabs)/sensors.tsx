@@ -1,9 +1,2 @@
-import { View, Text } from 'react-native';
-
-export default function Plants() {
-  return (
-    <View>
-      <Text>Biljke</Text>
-    </View>
-  );
-}
+import SensorsScreen from "@/screens/sensors/SensorsScreen";
+export default SensorsScreen;

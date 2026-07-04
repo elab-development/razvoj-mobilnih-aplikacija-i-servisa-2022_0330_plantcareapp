@@ -22,14 +22,14 @@ export const Typography = {
 
   sectionTitle: {
     fontFamily: Fonts.heading,
-    fontSize: fontScale(26),
+    fontSize: fontScale(24),
     lineHeight: fontScale(34),
     includeFontPadding: false,
   },
 
   cardTitle: {
     fontFamily: Fonts.heading,
-    fontSize: fontScale(24),
+    fontSize: fontScale(23),
     lineHeight: fontScale(31),
     includeFontPadding: false,
   },
