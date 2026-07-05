@@ -190,4 +190,23 @@ export const styles = StyleSheet.create({
     fontSize: fontScale(16),
     color: colors.textDarkest,
   },
+
+  deleteProfileButton: {
+    alignSelf: "center",
+    width: wp(40),
+    height: hp(5.8),
+    marginTop: hp(10),
+    borderRadius: moderateScale(14),
+    borderColor: "#FFB3A7",
+  },
+
+  deleteProfileButtonText: {
+    ...Typography.buttonTextSmall,
+    color: "#FFB3A7",
+  },
+
+  deleteLoader: {
+    marginTop: hp(2),
+    marginBottom: hp(1),
+  },
 });

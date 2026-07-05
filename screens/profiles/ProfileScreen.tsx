@@ -42,6 +42,8 @@ export default function ProfileScreen() {
 
   const [biometricEnabled, setBiometricEnabledState] = useState(false);
 
+  const [deletingProfile, setDeletingProfile] = useState(false);
+
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
 
@@ -166,6 +168,60 @@ export default function ProfileScreen() {
   async function handleLogout() {
     await supabase.auth.signOut();
     router.replace("/login");
+  }
+
+  async function deleteProfile() {
+    setDeletingProfile(true);
+
+    try {
+      const { data } = await supabase.auth.getSession();
+
+      const accessToken = data.session?.access_token;
+
+      if (!accessToken) {
+        throw new Error("Korisnik nije prijavljen.");
+      }
+
+      const { error } = await supabase.functions.invoke("delete-account", {
+        method: "POST",
+        headers: {
+          Authorization: `Bearer ${accessToken}`,
+        },
+      });
+
+      if (error) {
+        throw error;
+      }
+
+      await supabase.auth.signOut();
+
+      Alert.alert("Uspešno", "Profil je obrisan.");
+      router.replace("/onboarding");
+    } catch (error: any) {
+      console.log("Delete profile error:", error);
+
+      Alert.alert("Greška", error.message ?? "Profil nije obrisan.");
+    } finally {
+      setDeletingProfile(false);
+    }
+  }
+
+  function handleDeleteProfilePress() {
+    Alert.alert(
+      "Brisanje profila",
+      "Da li ste sigurni da želite da obrišete profil? Ova akcija nepovratno briše Vaš nalog i svu istoriju.",
+      [
+        {
+          text: "Otkaži",
+          style: "cancel",
+        },
+        {
+          text: "Obriši",
+          style: "destructive",
+          onPress: deleteProfile,
+        },
+      ],
+    );
   }
 
   async function handlePickAvatar() {
@@ -367,6 +423,22 @@ export default function ProfileScreen() {
           buttonStyle={styles.cancelButton}
           textStyle={styles.cancelButtonText}
         />
+
+        {deletingProfile ? (
+          <ActivityIndicator
+            style={styles.deleteLoader}
+            size="large"
+            color={colors.textLightest}
+          />
+        ) : (
+          <AppButton
+            title="obriši profil"
+            variant="outline"
+            onPress={handleDeleteProfilePress}
+            buttonStyle={styles.deleteProfileButton}
+            textStyle={styles.deleteProfileButtonText}
+          />
+        )}
       </View>
     </KeyboardAwareScrollView>
   );
