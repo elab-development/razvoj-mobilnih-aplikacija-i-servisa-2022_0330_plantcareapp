@@ -1,12 +1,12 @@
 import { router } from "expo-router";
 import { useEffect, useMemo, useState } from "react";
 import {
-    ActivityIndicator,
-    Alert,
-    Image,
-    Text,
-    TextInput,
-    View,
+  ActivityIndicator,
+  Alert,
+  Image,
+  Text,
+  TextInput,
+  View,
 } from "react-native";
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 
@@ -225,7 +225,6 @@ export default function AddSensorScreen() {
 
   return (
     <View style={styles.container}>
-      <View style={styles.topShape}></View>
       <KeyboardAwareScrollView
         style={styles.scrollView}
         contentContainerStyle={styles.scrollContent}
@@ -234,6 +233,8 @@ export default function AddSensorScreen() {
         keyboardShouldPersistTaps="handled"
         showsVerticalScrollIndicator={false}
       >
+        <View style={styles.topShape}></View>
+
         <Image
           source={require("@/assets/images/logo.png")}
           style={styles.logo}
