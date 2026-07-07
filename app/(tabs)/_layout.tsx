@@ -132,6 +132,12 @@ export default function TabLayout() {
           href: null,
         }}
       />
+      <Tabs.Screen
+        name="plant-details/[id]"
+        options={{
+          href: null,
+        }}
+      />
 
       <Tabs.Screen
         name="sensors"

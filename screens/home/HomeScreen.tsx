@@ -2,15 +2,15 @@ import { Ionicons } from "@expo/vector-icons";
 import { router, useFocusEffect } from "expo-router";
 import { useCallback, useMemo, useState } from "react";
 import {
-    ActivityIndicator,
-    FlatList,
-    Image,
-    ImageSourcePropType,
-    Pressable,
-    RefreshControl,
-    Text,
-    TextInput,
-    View,
+  ActivityIndicator,
+  FlatList,
+  Image,
+  ImageSourcePropType,
+  Pressable,
+  RefreshControl,
+  Text,
+  TextInput,
+  View,
 } from "react-native";
 
 import { Colors } from "@/constants/theme";
@@ -296,7 +296,7 @@ export default function HomeScreen() {
       return "sutra";
     }
 
-    return `${diffDays} dana`;
+    return `za ${diffDays} dana`;
   }
 
   function renderPlantCard({ item }: { item: PlantItem }) {
@@ -305,7 +305,12 @@ export default function HomeScreen() {
     return (
       <Pressable
         style={styles.card}
-        onPress={() => router.push(`/plant-details/${item.id}` as any)}
+        onPress={() =>
+          router.push({
+            pathname: "/(tabs)/plant-details/[id]" as any,
+            params: { id: item.id },
+          })
+        }
       >
         <View style={styles.imageCircle}>
           <Image
@@ -341,7 +346,7 @@ export default function HomeScreen() {
           ) : (
             <>
               <View style={styles.infoRow}>
-                <Text style={styles.infoLabel}>Zalivanje za:</Text>
+                <Text style={styles.infoLabel}>Zalivanje:</Text>
                 <Text style={styles.infoValue}>
                   {getNextWateringText(item)}
                 </Text>
